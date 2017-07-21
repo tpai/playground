@@ -1,0 +1,18 @@
+{
+  "name": "playground",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "benchmark": "^2.1.4",
+    "fast-memoize": "^2.2.7",
+    "lodash": "^4.17.4",
+    "lru-cache": "^4.1.1",
+    "path-match": "^1.2.4"
+  },
+  "devDependencies": {
+    "jest": "^20.0.4"
+  }
+}
