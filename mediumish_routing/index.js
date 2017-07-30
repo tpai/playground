@@ -1,13 +1,15 @@
+const { parse } = require('url');
 const route = require('path-match')({
     sensitive: false,
     strict: false,
     end: false
-})
+});
 
 function getIdFrom(path) {
-    const short = route('/p/:id')(path);
-    const regular = route('/:user/:article')(path);
-    const vip = route('/:article')(path);
+    const { pathname } = parse(path, true);
+    const short = route('/p/:id')(pathname);
+    const regular = route('/:user/:article')(pathname);
+    const vip = route('/:article')(pathname);
     if (short) {
         return cleanArticleId(short.id);
     } else if (regular) {
@@ -19,11 +21,10 @@ function getIdFrom(path) {
 }
 
 function matchArticlePath(str) {
-    const matches = /([0-9a-z]{1,})-(\S{1,})-([0-9a-z]{1,})/ig.exec(str);
-    const category = matches[1];
-    const title = matches[2];
-    const id = matches[3];
-    return { category, title, id };
+    const matches = /(\S{1,})-([0-9a-z]{1,})$/mig.exec(str);
+    const title = matches[1];
+    const id = matches[2];
+    return { title, id };
 }
 
 function cleanArticleId(id) {
