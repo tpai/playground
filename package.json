@@ -8,7 +8,7 @@
   "dependencies": {
     "benchmark": "^2.1.4",
     "fast-memoize": "^2.2.7",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.19",
     "lru-cache": "^4.1.1",
     "path-match": "^1.2.4",
     "url": "^0.11.0"
